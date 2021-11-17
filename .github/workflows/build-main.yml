@@ -22,8 +22,7 @@ jobs:
         env: 
           SHORTSHA: ${{ steps.vars.outputs.sha_short }}
       - name: Run poetry
-        run: |
-          poetry export --without-hashes --format requirements.txt --output docker/requirements.txt; poetry build; cp -r ./dist docker/
+        run: docker/build.sh
       - uses: mr-smithers-excellent/docker-build-push@v3
         name: Build & push commit tagged Docker image
         with:
