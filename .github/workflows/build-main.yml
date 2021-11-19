@@ -21,8 +21,21 @@ jobs:
           echo $SHORTSHA
         env: 
           SHORTSHA: ${{ steps.vars.outputs.sha_short }}
-      - name: Run poetry
-        run: docker/build.sh
+      - name: Setup Poetry
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: 1.1.0
+      - uses: actions/cache@v1
+        with:
+          path: ~/.cache/pypoetry/virtualenvs
+          key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-poetry-
+      - name: Install Python Packages
+        run:  |
+          poetry export --without-hashes --format requirements.txt --output docker/requirements.txt
+          poetry build
+          cp -r ./dist docker/
       - uses: mr-smithers-excellent/docker-build-push@v3
         name: Build & push commit tagged Docker image
         with:
