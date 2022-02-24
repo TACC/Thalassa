@@ -95,7 +95,7 @@ RUN apt update -yq; \
     apt install -yq \
         gosu \
         #libgdal-dev \
-        libgeos-dev \
+        libgeos-dev=3.7.2 \
         libproj-dev \
         proj-bin \
         #libshp-dev \
