@@ -35,6 +35,7 @@ flake8-polyfill==1.0.2; python_full_version >= "3.6.1" and python_version < "4.0
 flake8==2.3.0; python_full_version >= "3.6.1" and python_version < "4.0"
 fsspec==2021.11.0; python_version >= "3.7"
 geoviews==1.9.2; python_version >= "3.7"
+gunicorn==20.0.4; python_version >= "3.7"
 heapdict==1.0.1; python_version >= "3.7"
 holoviews==1.14.6; python_version >= "2.7"
 identify==2.4.0; python_full_version >= "3.6.1"
