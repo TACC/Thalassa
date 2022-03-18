@@ -45,12 +45,3 @@ jobs:
           dockerfile: docker/Dockerfile
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - uses: mr-smithers-excellent/docker-build-push@v3
-        name: Build & push commit tagged Docker image
-        with:
-          image: ${{ secrets.DOCKERHUB_REPO }}
-          tag: latest   
-          registry: docker.io
-          dockerfile: docker/Dockerfile
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
