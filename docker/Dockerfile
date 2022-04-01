@@ -111,15 +111,15 @@ RUN apt update -yq; \
 COPY docker/requirements.txt /tmp/
 RUN python3.8 -mpip install -U --no-cache-dir --no-compile pip setuptools; \
     # cartopy requires that numpy is already installed installed...
-    python3.8 -mpip install --no-cache-dir --no-compile numpy; \
+    #python3.8 -mpip install --no-cache-dir --no-compile numpy; \
     python3.8 -mpip install --no-cache-dir --no-compile -r /tmp/requirements.txt; \
     find / -xdev -name *.pyc -delete; \
     echo 'Requirements installation: OK'
 
-#COPY /dist/thalassa-0.1.0-py3-none-any.whl  /tmp/
-#RUN python3.8 -mpip install -U --no-cache-dir --no-compile /tmp/thalassa-0.1.0-py3-none-any.whl; \
-#    find / -xdev -name *.pyc -delete; \
-#    echo 'Poseidon-viz installation: OK'
+COPY /dist/thalassa-0.1.0-py3-none-any.whl  /tmp/
+RUN python3.8 -mpip install -U --no-cache-dir --no-compile /tmp/thalassa-0.1.0-py3-none-any.whl; \
+    find / -xdev -name *.pyc -delete; \
+    echo 'Poseidon-viz installation: OK'
 
 USER "${USER_NAME}"
 
