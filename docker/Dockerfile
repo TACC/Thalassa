@@ -111,7 +111,7 @@ RUN apt update -yq; \
 COPY docker/requirements.txt /tmp/
 RUN python3.8 -mpip install -U --no-cache-dir --no-compile pip setuptools; \
     # cartopy requires that numpy is already installed installed...
-    #python3.8 -mpip install --no-cache-dir --no-compile numpy; \
+    python3.8 -mpip install --no-cache-dir --no-compile numpy==0.19.0.post1; \
     python3.8 -mpip install --no-cache-dir --no-compile -r /tmp/requirements.txt; \
     find / -xdev -name *.pyc -delete; \
     echo 'Requirements installation: OK'
