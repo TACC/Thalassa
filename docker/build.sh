@@ -37,3 +37,5 @@ sudo docker build .
 #  creation_date_tag=$(date -u +"%Y%m%d")
 #  sudo docker tag "${image_name}":runtime "${image_fqdn}":runtime-"${creation_date_tag}"
 #fi
+
+#test
