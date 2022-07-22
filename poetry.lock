@@ -153,7 +153,7 @@ typing-extensions = ">=3.10.0"
 
 [[package]]
 name = "cartopy"
-version = "0.19.0"
+version = "0.20.0"
 description = "A cartographic python library with Matplotlib support for visualisation"
 category = "main"
 optional = false
@@ -482,7 +482,7 @@ python-versions = ">=3.7"
 
 [package.dependencies]
 bokeh = ">=2.4.0,<2.5"
-cartopy = ">=0.19.0"
+cartopy = ">=0.20.0"
 holoviews = ">=1.14.2"
 
 [package.extras]
